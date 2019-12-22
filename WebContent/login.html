@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>login</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+
+<!-- css files -->
+<link href="css/style2.css" type="text/css" rel="stylesheet" media="all">   
+<link rel="stylesheet" href="css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+<link href="css/popup-box.css" rel="stylesheet" type="text/css" media="all" /> <!-- popup box css -->
+<link rel="stylesheet" href="css/music.css">
+</head>
+
+<body>
+
+<!-- section -->
+<section class="register">
+	<div class="header">
+		<div class="logo">
+			<a href="#">笃行日志</a>
+		</div>
+	<div class="social">
+			<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+			<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+			<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+			<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
+	</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div class="register-full">
+		<div class="register-left">
+			<div class="register">
+				<p>WelCome to you!</p>
+				
+				<p>梁思成曾经问过林徽因这么一句话：“有一句话，我只问一次，以后都不会再问了，为什么是我？” 她回答道“答案很长，我得用一生去告诉你，准备好听我说了吗？”.</p>
+				<div class="content3">
+					<ul>
+						<li><a class="" href="index.jsp"> 访客进入</a></li>
+						<li><a class="read" href="about.jsp"> 关于我</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="rightbox">
+		   <div id="player">
+		      <div class="search_bar">
+		        <img src="images/player_title.png" alt="" />
+		        <!-- 搜索歌曲 -->
+		        <input type="text" autocomplete="off" v-model='query' @keyup.enter="searchMusic();" />
+		      </div>
+		      <div class="center_con">
+		        <!-- 搜索歌曲列表 -->
+		        <div class='song_wrapper' ref='song_wrapper'>
+		          <ul class="song_list">
+		            <li v-for="item in musicList">
+		              <!-- 点击放歌 -->
+		              <a href="javascript:;" @click='playMusic(item.id)'></a>
+		              <b>{{item.name}}</b>
+		
+		            </li>
+		
+		          </ul>
+		          <img src="images/line.png" class="switch_btn" alt="">
+		        </div>
+		
+		      </div>
+		      <div class="audio_con">
+		        <audio ref='audio' @play="play" @pause="pause" :src="musicUrl" controls autoplay loop class="myaudio"></audio>
+		      </div>
+		
+		    </div>
+		</div>
+		<div class="register-right">
+			<div class="register-in">
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog2">注册 »</a>
+			</div>
+			<div class="register-in middle">
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog">登录 »</a>
+			</div>
+			<div class="register-in">
+				<a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s">Subscribe here »</a>
+			</div>
+			
+		</div>
+	
+	</div>
+	
+	
+	
+	<div class="clear"> </div>
+	<!-- copyright -->
+	<p class="agile-copyright">Design by <a href="/">笃行日志</a> <a href="/">永ICP备11002373号-1</p>
+	<!-- //copyright -->
+</section>
+<!-- //section -->
+
+
+
+<!--删除此框后报错 -->
+<div class="pop-up"> 
+	<div id="small-dialog1" class="mfp-hide book-form">
+
+		<div class="login-form login-form-left"> 
+			<div class="agile-row">
+				<h3>Login to your site</h3>
+				<span class="fa fa-lock"></span>
+				<div class="clear"></div>
+				<div class="login-agileits-top"> 	
+					<form action="#" method="post"> 
+						<input type="text" class="name" name="user name" Placeholder="Username" required=""/>
+						<input type="password" class="password" name="Password" Placeholder="Password" required=""/>
+						<input type="submit" value="Login"> 
+					</form> 	
+				</div> 
+				<div class="login-agileits-bottom"> 
+					<h6><a href="#">Forgot password?</a></h6>
+				</div> 
+			</div>  
+		</div> 
+		
+	</div>  
+</div>
+<!-- //login form popup-->
+
+<!-- 登录-->
+<div class="pop-up"> 
+	<div id="small-dialog" class="mfp-hide book-form">
+	
+		<div class="login-form login-form-left"> 
+			<div class="agile-row">
+				<h3>登录</h3>
+				<div class="login-agileits-top"> 	
+					<form action="/Blog/LoginServlet" method="post"> 
+						<input type="text" class="name" name="username" Placeholder="Username" required=""/>
+						<input type="password" class="password" name="password" Placeholder="Password" required=""/>
+						<input type="submit" value="Login"> 
+					</form> 		
+				</div>
+				<div class="login-agileits-bottom"> 
+					<h6><a href="#">忘记密码?</a></h6>
+				</div> 
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<!-- 注册-->
+<div class="pop-up"> 
+	<div id="small-dialog2" class="mfp-hide book-form">
+	
+		<div class="login-form login-form-left"> 
+			<div class="agile-row">
+				<h3>注册</h3>
+				<div class="login-agileits-top"> 	
+					<form action="/Blog/RegisterServlet" method="post"> 
+						<input type="text" class="name" name="name" Placeholder="用户名" required=""/>
+						<input type="email" class="email" name="email" Placeholder="Email" required=""/>
+						<input type="text" class="phone" name="phone" Placeholder="电话号码" required=""/>
+						<input type="text" class="email" name="work" Placeholder="职业" required=""/>
+						<input type="text" class="place" name="place" Placeholder="地址" required=""/>
+						<input type="password" class="password" name="password" Placeholder="密码" required=""/>
+						<div class="login-check">
+							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> I Accept to the <a href="#">Terms &amp; Conditions</a></label>
+						</div>
+						<input type="submit" value="Register"> 
+					</form> 	
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!-- //register form popup-->
+
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+
+<!--popup-js-->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+ <script>
+	$(document).ready(function() {
+	$('.popup-with-zoom-anim').magnificPopup({
+		type: 'inline',
+		fixedContentPos: false,
+		fixedBgPos: true,
+		overflowY: 'auto',
+		closeBtnInside: true,
+		preloader: false,
+		midClick: true,
+		removalDelay: 300,
+		mainClass: 'my-mfp-zoom-in'
+	});
+																	
+	});
+</script>
+<!--//popup-js-->
+
+ <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 官网提供的 axios 在线地址 -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript">
+    // 设置axios的基地址
+    axios.defaults.baseURL = 'https://autumnfish.cn';
+    // axios.defaults.baseURL = 'http://localhost:3000';
+
+
+
+    // 实例化vue
+    var app = new Vue({
+      el: "#player",
+      data: {
+        // 搜索关键字
+        query: '周杰伦',
+        // 歌曲列表
+        musicList: [],
+        // 歌曲url
+        musicUrl: '',
+        // 是否正在播放
+        isPlay: false,
+       
+      },
+      
+      mounted(){
+          //自动加载indexs方法
+          this.searchMusic();
+      },
+      // 方法
+      methods: {
+        // 搜索歌曲
+        searchMusic() {
+          if (this.query == 0) {
+            return
+          }
+          axios.get('/search?keywords=' + this.query).then(response => {
+            // 保存内容
+            this.musicList = response.data.result.songs;
+
+          })
+
+          // 清空搜索
+          this.query = ''
+        },
+        
+        // 播放歌曲
+        playMusic(musicId) {
+          // 获取歌曲url
+          axios.get('/song/url?id=' + musicId).then(response => {
+            // 保存歌曲url地址
+            this.musicUrl = response.data.data[0].url
+          })
+
+        },
+        // audio的play事件
+        play() {
+          this.isPlay = true
+          // 清空mv的信息
+          this.mvUrl = ''
+        },
+        // audio的pause事件
+        pause() {
+          this.isPlay = false
+        },
+        // 搜索历史记录中的歌曲
+        historySearch(history) {
+          this.query = history
+          this.searchMusic()
+          this.showHistory = false;
+        }
+      },
+
+    })
+
+  </script>
+</body>	
+<!-- //body ends -->
+</html>

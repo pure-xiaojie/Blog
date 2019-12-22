@@ -1,0 +1,66 @@
+@charset "gb2312";
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+#mnav, article { width: 90%; overflow: hidden }
+.tuijian li { width: 26% }
+}
+@media screen and (min-width: 960px) and (max-width: 1023px) {
+#mnav, article { width: 90%; overflow: hidden }
+.tuijian li { width: 26% }
+}
+@media screen and (min-width: 768px) and (max-width: 959px) {
+#mnav, article { width: 96%; overflow: hidden }
+#starlist li { padding: 0 0 0 20px; }
+.tuijian li { width: 26% }
+.pics ul li:nth-child(2) { margin: 0 0 0 12px; }
+.rightbox { display: none }
+.leftbox { width: 100% }
+}
+ @media only screen and (min-width: 480px) and (max-width: 767px) {
+#mnav, article { width: 96%; overflow: hidden }
+#mnavh { display: block; }
+#starlist { display: none; width: 100%; }
+#starlist li { float: none; display: block; padding: 0 0 0 0; width: 100%; text-align: center }
+#starlist li { padding: 0 0 0 20px; }
+.tuijian li { width: 28%; padding: 10px }
+.pics ul li i { height: 100px }
+.pics ul li img { height: 100% }
+.pics ul li:nth-child(2) { margin: 0 0 0 8px; }
+.pics ul li span { display: none }
+.rightbox { display: none }
+.leftbox { width: 100% }
+.autor .more { display: none }
+.news_infos img { max-width: 400px }
+.dasbox { display: none }
+.diggit { margin: auto; float: none }
+.zsm { display: block }
+.zsm img { width: 200px; margin: auto }
+.ffsm p img { position: inherit; float: none; }
+.pagelist a { margin: 0x; border: 0; padding: 5px 0px; }
+.pagelist > b { padding: 0; border: 0; }
+}
+@media only screen and (max-width: 479px) {
+#mnav, article { width: 96%; overflow: hidden }
+#mnavh { display: block; }
+#starlist { display: none; width: 100%; }
+#starlist li { float: none; display: block; padding: 0 0 0 0; width: 100%; text-align: center }
+#starlist li { padding: 0 0 0 20px; }
+.hometitle span { display: none }
+.tuijian li { width: 45%; padding: 6px }
+.pics ul li { width: 100%; }
+.pics ul li:nth-child(2) { margin: 10px 0 }
+.rightbox { display: none }
+.leftbox { width: 100% }
+.autor .more, .viewnum { display: none }
+.blogpic { display: block; width: 100%; margin: auto; max-height: 120px; float: none }
+.blogpic img { margin: auto }
+.bloginfo p { clear: both }
+.dasbox { display: none }
+.diggit { margin: auto; float: none }
+.zsm { display: block }
+.zsm img { width: 60%; margin: auto }
+.news_infos img { width: 100% }
+.otherlink li { width: 90%; height: auto }
+.ffsm p img { position: inherit; float: none; }
+.pagelist a { margin: 0x; border: 0; padding: 5px 0px; }
+.pagelist > b { padding: 0; border: 0; }
+}

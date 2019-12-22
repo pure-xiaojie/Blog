@@ -1,0 +1,27 @@
+body {
+	background: #eee;
+}
+
+.container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 340px;
+	height: 400px;
+	margin-left: -170px;
+	margin-top: -200px;
+	text-align: center;
+}
+
+#input, #inputpassword {
+	margin: 10px 0;
+}
+
+#submit {
+	margin-top: 10px;
+}
+
+.visitor {
+	display: inline-block;
+	margin-top: 20px;
+}
